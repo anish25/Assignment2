@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Step 1 - Include your styles sheet -->
+    <title>The To Do List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>To Do List</h1>
+        </header>
+        <!--
+          Below is only a suggestion. Feel free to implement this
+          however you choose. Use your imagination!
+        -->
+        <!--
+          This is your form for creating a new
+          to do item
+        -->
+        <div id="newItemForm" onkeypress="return saveOnEnter(event);" style="display:none">
+            <input id="id" type="hidden" value="" />
+            <div class="form-group">
+                <label>Item Name</label>
+                <input id="itemName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Due Date</label>
+                <input id="dueDate" type="date" class="form-control">
+            </div>
+            <!-- The button for adding a new to do item -->
+            <div class="form-group">
+                <button id="addNewItem" onclick="saveItem();" class="btn btn-primary">
+                    <i class="fa fa-done"></i>
+                </button>
+                <button id="ref" onclick="resetForm();" class="btn">
+                    <i class="fa fa-refresh"></i>
+                </button>
+            </div>
+        </div>
+        <div class="text-right">
+            <button id="showHideForm" onclick="toggleForm();" class="btn btn-primary" style="margin-bottom:10px">
+                SHOW TASK FORM
+            </button>
+        </div>
+        <!-- This is where our to do items will appear -->
+        <table class="table table-striped table-bordered" >
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="toDoItems"></tbody>
+            <tfoot id="noTaskMsg">
+                <tr class="text-center">
+                    <td colspan="3">No tasks added.</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!--
+          This is the template for creating a new to do item.
+          Again, this is only a suggestion and how you choose
+          to implement this is completely up to you.
+        -->
+
+        <table id="itemTemplate" hidden>
+            <tr>
+                <td class="item-entry"></td>
+                <td class="item-due-date"></td>
+                <td class="item-actions">
+                    <!-- Button to edit an item entry -->
+                    <button class="item-edit btn btn-warning">
+                        <i class="fa fa-edit"></i>
+                    </button>
+
+                    <!-- Button to delete the item -->
+                    <button class="item-delete btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Step 2 - Include your JavaScript file -->
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
